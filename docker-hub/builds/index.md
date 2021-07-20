@@ -7,15 +7,24 @@ redirect_from:
 - /docker-cloud/builds/automated-build/
 - /docker-cloud/builds/
 - /docker-hub/builds/classic/
-title: Set up automated builds
+title: Set up Automated Builds
 ---
 
+{% include upgrade-cta.html
+  body="The Automated Builds feature is available on Pro and Team plans. Upgrade your existing plan to start automatically building and pushing your images today."
+  header-text="This feature requires a Pro or a Team plan"
+  target-url="https://www.docker.com/pricing?utm_source=docker&utm_medium=webreferral&utm_campaign=docs_driven_upgrade_auto_builds"
+%}
 
 ## How Automated Builds work
 
 Docker Hub can automatically build images from source code in an external
 repository and automatically push the built image to your Docker
 repositories.
+
+> **Note**
+>
+> If you are using automated builds for an open-source project, you can join our [Open Source Community](https://www.docker.com/community/open-source/application){: target="_blank" rel="noopener" class="_"} program to learn how Docker can support your project on Docker Hub.
 
 When you set up automated builds (also called autobuilds), you create a list of
 branches and tags that you want to build into Docker images. When you push code
@@ -40,7 +49,7 @@ queued to be run later.
 
 > **Note**
 >
-> The total number of pending builds in the queue is limited to 30 and further requests will be discarded.
+> The total number of pending builds in the queue is limited to 30 and further requests will be discarded. The number of parallel builds for Pro is 5 and for Team is 15.
 
 ![An automated build dashboard](images/index-dashboard.png)
 
@@ -298,6 +307,10 @@ You can enable the BuildKit builder by setting the `DOCKER_BUILDKIT=1`
 [Configure automated build settings](#configure-automated-build-settings) section.
 Refer to the [build images with BuildKit](../../develop/develop-images/build_enhancements.md)
 page for more information on BuildKit.
+
+> **Note**
+>
+> Autobuilds use the buildKit build-system by default. If you want to use the legacy Docker build-system, add the [environment variable](index.md#environment-variables-for-builds){: target="_blank" rel="noopener" class="_"} DOCKER_BUILDKIT=0.
 
 ## Build repositories with linked private submodules
 
